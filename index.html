@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="./style.css">
+   <title>Music Player</title>
+</head>
+
+<body>
+
+   <section class="music">
+      <audio src="./songs/song-1.mp3" preload="metadata" aria-hidden="true"></audio>
+      <div class="music-details">
+         <div class="radius">
+            <img src="./images/songs/song-1.jpg" id="music-img" alt="">
+            <!-- progress circle -->
+            <svg class="progress-circle" viewBox="0 0 100 100">
+               <path class="progress-circle-trail" d="M 50,50 m 0,-48
+               a 48,48 0 1 1 0,96
+               a 48,48 0 1 1 0,-96" fill-opacity="0">
+               </path>
+               <path class="progress-circle-fill" d="M 50,50 m 0,-48
+               a 48,48 0 1 1 0,96
+               a 48,48 0 1 1 0,-96" opacity="1" fill-opacity="0">
+               </path>
+            </svg>
+         </div>
+         <h3 class="title" id="title">Pura Pura Lupa</h3>
+         <p class="artist" id="artist">Mahen</p>
+      </div>
+      <div class="music-controls">
+         <div class="progress" id="progress">
+            <div class="progress-bar" id="progress-bar"></div>
+         </div>
+         <div class="time">
+            <time id="current-time">00:00</time>
+            <time id="duration">00:00</time>
+         </div>
+         <div class="cta">
+            <button type="button" id="prev" title="Sebelumnya">
+               <span class="material-icons">skip_previous</span>
+            </button>
+            <button type="button" id="toggle-play" title="Putar">
+               <span class="material-icons icon">play_circle</span>
+            </button>
+            <button type="button" id="next" title="Berikutnya">
+               <span class="material-icons">skip_next</span>
+            </button>
+         </div>
+      </div>
+   </section>
+
+   <script src="./app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600&display=swap");
+
+:root {
+   --bg-color: #222222;
+   --card-music-color: #101010;
+   --progress-bar-color: #09de6e;
+   --action-color: #878787;
+   --color-light: #eeeeee;
+   --color-grey: #8b8b8b;
+}
+
+html {
+   box-sizing: border-box;
+   height: 100%;
+   font-size: 62.5%;
+}
+
+* {
+   box-sizing: inherit;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   background: var(--bg-color);
+   font-family: "Nunito Sans", sans-serif;
+   font-size: 1.6rem;
+   min-height: 100vh;
+   padding: 4rem 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+button,
+img {
+   user-select: none;
+   display: inline-block;
+}
+
+audio {
+   display: none;
+}
+
+.music {
+   width: min(100%, 40rem);
+   min-height: 45rem;
+   background: var(--card-music-color);
+   padding: 5rem 3rem 4rem;
+   border-radius: 5px;
+   box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.25);
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.music-details {
+   text-align: center;
+}
+
+.music-details .radius {
+   position: relative;
+   width: 10rem;
+   height: 10rem;
+   border-radius: 50%;
+   margin: 0 auto;
+}
+
+.music-details .radius img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 50%;
+   animation: rotate 6s linear infinite;
+   animation-play-state: paused;
+}
+
+.music-details .radius img.rotate {
+   animation-play-state: running;
+}
+
+/* Progress Cirlce */
+.progress-circle {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+   transform: scale(1.17);
+}
+
+.progress-circle path {
+   stroke: rgba(253, 252, 252, 0.2); /* warna garis */
+   stroke-width: 4; /* ketebalan garis */
+   stroke-linecap: round; /* bentuk ujung garis */
+   stroke-dasharray: 301.593px, 301.593px;
+   stroke-dashoffset: 0;
+   transition: stroke-dashoffset 0.3s ease, stroke-dasharray 0.3s ease,
+      stroke 0.3s ease, stroke-width 0.06s ease;
+}
+
+.progress-circle .progress-circle-fill {
+   stroke: transparent;
+   stroke-dasharray: 0px, 301.593px;
+}
+
+.music-details .title {
+   color: var(--color-light);
+   font-size: 2.3rem;
+   font-weight: 600;
+   margin-top: 4rem;
+}
+
+.music-details .artist {
+   color: var(--color-grey);
+   font-weight: 500;
+   margin-top: 1rem;
+}
+
+/* Progress bar horizontal */
+.progress {
+   width: 100%;
+   height: 3px;
+   background: var(--color-grey);
+   border-radius: 5rem;
+   margin-top: 6rem;
+   cursor: pointer;
+}
+
+.progress .progress-bar {
+   position: relative;
+   width: 0;
+   height: 100%;
+   background: var(--progress-bar-color);
+   border-radius: 5rem;
+   transition: width 0.3s ease;
+}
+
+.progress .progress-bar::after {
+   content: "";
+   display: block;
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   width: 0.7rem;
+   height: 0.7rem;
+   border-radius: 50%;
+   margin: auto 0;
+   background: var(--color-light);
+}
+
+/* Time */
+.time {
+   margin-top: 5px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.time time {
+   color: var(--color-light);
+   font-size: 1.1rem;
+   font-weight: 500;
+}
+
+/* Controls button */
+.cta {
+   margin-top: 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.cta button {
+   outline: 0;
+   border: 0;
+   background-color: transparent;
+   cursor: pointer;
+   margin: 0 1.2rem;
+}
+
+.cta button .material-icons {
+   color: var(--color-grey);
+   font-size: 4rem;
+}
+
+.cta button .material-icons:hover {
+   color: var(--color-light);
+}
+
+@keyframes rotate {
+   from {
+      transform: rotate(0turn);
+   }
+   to {
+      transform: rotate(1turn);
+   }
+}
+
+@media screen and (max-width: 375px) {
+   .music {
+      padding: 5rem 2rem 4rem;
+   }
+
+   .music-details .title {
+      font-size: 2rem;
+   }
+
+   .music-details .artist {
+      margin-top: 1rem;
+   }
+
+   .time time {
+      font-size: 1rem;
+   }
+}
